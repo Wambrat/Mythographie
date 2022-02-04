@@ -7,17 +7,18 @@
     {% if error %}
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
-
-    <form action="{{ path('login') }}" method="post">
-        <label for="username">Email:</label>
+<form action="{{ path('login') }}" method="post">
+    <div class="card w-50 align-items-center mx-auto mt-5">    
+      <div class="mb-3 mt-5">
+        <label for="username" class="form-label">Adresse Email</label>
         <input type="text" id="username" name="_username" value="{{ last_username }}"/>
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="_password"/>
-
-        {# If you want to control the URL the user is redirected to on success
-        <input type="hidden" name="_target_path" value="/account"/> #}
-
-        <button type="submit">login</button>
-    </form>
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Mot de passe</label>
+            <input type="password" id="password" name="_password"/>
+      </div>
+      <button type="submit" class="btn btn-primary mb-5">Confirmer</button>
+    </div>
+</form>
 {% endblock %}

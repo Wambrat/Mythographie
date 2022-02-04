@@ -1,21 +1,26 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">
-      <img src="https://new-game-plus.fr/wp-content/uploads/2021/09/Critique-A-Total-War-Saga-Troy.jpg" alt="Mythographie" width="30" height="24" class="d-inline-block align-text-top">
-      Mythographie
+    <a class="navbar-brand d-flex gap-3 align-item-center" href="/">
+      <img src="https://new-game-plus.fr/wp-content/uploads/2021/09/Critique-A-Total-War-Saga-Troy.jpg" alt="Mythographie" width="50" height="40" class="d-inline-block align-text-top rounded-pill">
+      <p class="m-0">Mythographie</p>
     </a>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <form class="">
+    <div class="d-flex flex-row-reverse gap-3" id="navbarSupportedContent">
         {% if app.user %}
-
-            <p>{{ app.user.pseudo }}</p>
-            <img src="{{ app.user.avatar }}" alt="{{ app.user.pseudo }}">
-
-            <a href="{{ path('app_logout') }}"> Se déconnecter</a>
-
+          <div class="nav-item">
+            <a class="mx-4 nav-link" href="{{ path('app_logout') }}"> Se déconnecter</a>
+          </div>
+          <div class="nav-item align-item-center">  
+            <p class="m-0 align-middle">{{ app.user.pseudo }}</p>
+          </div>
+          <div class="nav-item">  
+            <img src="{{ app.user.avatar }}" alt="{{ app.user.pseudo }}" width="30" height="24" class="d-inline-block align-text-top rounded-circle ">
+          </div>
+          <div class="nav-item">
+            <a class="mx-4 nav-link" href="{{ path('strip_boxe_new') }}"> Créé ta propre hsitoire</a>
+          </div>
         {% else %}
-
-            <a href="{{ path('login') }}"> Se connecter</a>
+  
+            <a class="mx-4 nav-link" href="{{ path('login') }}"> Se connecter</a>
 
         {% endif %}
     </div>

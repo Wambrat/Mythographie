@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}StripBoxe index{% endblock %}
+
+{% block body %}
+    <h1>StripBoxe index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Body</th>
+                <th>Picture</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for strip_boxe in strip_boxes %}
+            <tr>
+                <td>{{ strip_boxe.id }}</td>
+                <td>{{ strip_boxe.body }}</td>
+                <td>{{ strip_boxe.picture }}</td>
+                <td>
+                    <a href="{{ path('strip_boxe_show', {'id': strip_boxe.id}) }}">show</a>
+                    <a href="{{ path('strip_boxe_edit', {'id': strip_boxe.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="">Create new</a>
+{% endblock %}

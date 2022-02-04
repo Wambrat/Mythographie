@@ -4,21 +4,25 @@
 
 {% block body %}
 {{ parent() }}
-    <h1>Toutes les Mythologies :</h1>
-    <div class="row">
+    <style>
+        img {
+            filter: brightness(50%);
+        }
+        img:hover {
+            filter: brightness(0);
+        }
+    </style>
+    <h1 class="text-center text-gray mb-5 mt-5">Toutes les Mythologies :</h1>
+    <div class="d-flex flex-row gap-3 flex-wrap justify-content-around">
     {% for mythology in mythologies %}
-        <div class="col-6">
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">{{ loop.index }} / {{ mythology.name }}</h2>
-                    <p class="card-text">{{ mythology.description }}</p>
-                    {# Lien vers la fiche de la série : { slug: program.slug })#}
-                </div>
-                <div class="card-footer">
-                    <a href="{{ path("categories", { slug : mythology.slug }) }}" class="btn btn-primary">Aller voir les Myths</a>
+            <div class="card bg-dark text-white w-25">
+                <img src="https://i.f1g.fr/media/eidos/805x453_crop/2021/09/11/XVMdb074024-124f-11ec-abb3-b311f09975f5.jpg" class="card-img img-fluid" alt="{{ mythology.name }}">
+                <div class="card-img-overlay ">
+                  <h5 class="card-title">{{ mythology.name }}</h5>
+                  <p class="card-text">{{ mythology.description }}</p>
+                  <a href="{{ path("categories", { slug : mythology.slug }) }}" class="btn btn-secondary text-end">Aller voir les Myths</a>
                 </div>
             </div>
-        </div>    
     {% else %}
         Aucune série trouvée.
     {% endfor %}
