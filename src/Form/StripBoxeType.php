@@ -17,13 +17,13 @@ class StripBoxeType extends AbstractType
     {
         $builder
             ->add('body', TextType::class, [
-                "label" => "Le corp de ton histoire"
+                "label" => "Le corp de ton histoire",
             ])
             ->add('picture', UrlType::class)
             ->add('history', EntityType::class, [
                 "class" => History::class,
                 'choice_label' => 'name',
-                'multiple' => true,
+                'multiple' => false,
                 'expanded' => true,
                 'by_reference' => false,
             ])

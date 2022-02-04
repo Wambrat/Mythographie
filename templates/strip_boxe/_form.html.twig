@@ -1,4 +1,13 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <div class="card w-50 align-items-center mx-auto mt-5 gap-4">
+        {{ form_label(form.body) }}
+        {{ form_widget(form.body) }}
+        {{ form_label(form.picture) }}
+        {{ form_widget(form.picture) }}
+        {{ form_label(form.history) }}
+        <div class="list-group-items">
+        {{ form_widget(form.history) }}
+        </div>
+        <button class="btn btn-primary" class="mb-3">{{ button_label|default('Save') }}</button>
+    </div>
 {{ form_end(form) }}

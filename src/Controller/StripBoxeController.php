@@ -39,7 +39,7 @@ class StripBoxeController extends AbstractController
             $entityManager->persist($stripBoxe);
             $entityManager->flush();
 
-            return $this->redirectToRoute('strip_boxe_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('mythologie', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('strip_boxe/new.html.twig', [
