@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Type de Personnage{% endblock %}
+
+{% block body %}
+{{ parent() }}
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ path('mythology') }}">Mythologies</a></li>
+        <li class="breadcrumb-item"><a href="{{ path("categories", { slug : character.mythology.slug }) }}">Categories</a></li>
+        <li class="breadcrumb-item"><a href="{{ path("category", { slugMythology: character.mythology.slug, slugCategory: character.category.slug }) }}">{{ character.category.slug }}</a></li>
+        <li class="breadcrumb-item" aria-current="page">{{ character.name }}</li>
+      </ol>
+    </nav>
+    <h1>Quelle type de personnage {{ character.name }} voulez vous voir les Mythes?</h1>
+    <div class="row">
+    {% for history in character.histories %}
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">{{ loop.index }} / {{ history.name }}</h3>
+                    {# Lien vers la fiche de la série : { slug: program.slug })#}
+                </div>
+                <div class="card-footer">
+                    <a href="{{ path("history", { slugMythology: character.mythology.slug, slugCategory : character.category.slug, slugCharacter: character.slug, history : history.slug }) }}" class="btn btn-primary">Contempler {{ history.name }}</a>
+                </div>
+            </div>
+        </div>    
+    {% else %}
+        Aucune série trouvée.
+    {% endfor %}
+    </div>
+{% endblock %}

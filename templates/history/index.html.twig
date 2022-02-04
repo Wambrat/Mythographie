@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mythographie {% endblock %}
+
+{% block body %}
+{{ parent() }}
+<nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ path('mythology') }}">Mythologies</a></li>
+        <li class="breadcrumb-item"><a href="{{ path("categories", { slug : history.mainCharacter.mythology.slug }) }}">Categories</a></li>
+        <li class="breadcrumb-item"><a href="{{ path("category", { slugMythology: history.mainCharacter.mythology.slug, slugCategory: history.mainCharacter.category.slug }) }}">{{ history.mainCharacter.category.slug }}</a></li>
+        <li class="breadcrumb-item"><a href="{{ path("character", { slugMythology: history.mainCharacter.mythology.slug, slugCategory : history.mainCharacter.category.slug, character: history.mainCharacter.slug }) }}">{{ history.mainCharacter.slug }}</a></li>
+        <li class="breadcrumb-item" aria-current="page">{{ history.slug }}</li>
+      </ol>
+    </nav>
+    <h1>{{history.name }}</h1>
+    <div>
+        <p>{{ history.slug }}</p>
+    </div>
+{% endblock %}
