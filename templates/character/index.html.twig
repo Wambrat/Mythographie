@@ -3,6 +3,13 @@
 {% block title %}Type de Personnage{% endblock %}
 
 {% block body %}
+    <style>
+        .card {
+            object-fit: cover;
+            object-position: center;
+            background: url(https://i.pinimg.com/736x/f8/a2/ea/f8a2ea37dadd8976fc12a38a48806e06.jpg);
+        }
+    </style>
 {{ parent() }}
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
@@ -12,20 +19,17 @@
         <li class="breadcrumb-item" aria-current="page">{{ character.name }}</li>
       </ol>
     </nav>
-    <h1>Quelle type de personnage {{ character.name }} voulez vous voir les Mythes?</h1>
-    <div class="row">
+    <h1 class="text-center text-gray mb-5 mt-5">Quelle type de personnage {{ character.name }} voulez vous voir les Mythes?</h1>
+    <div class="d-flex flex-column gap-3 align-items-center">
     {% for history in character.histories %}
-        <div class="col-6">
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">{{ loop.index }} / {{ history.name }}</h3>
-                    {# Lien vers la fiche de la série : { slug: program.slug })#}
-                </div>
-                <div class="card-footer">
-                    <a href="{{ path("history", { slugMythology: character.mythology.slug, slugCategory : character.category.slug, slugCharacter: character.slug, history : history.slug }) }}" class="btn btn-primary">Contempler {{ history.name }}</a>
-                </div>
+        <div class="card w-25 d-flex flex-column gap-3">
+            <h3 class="card-title text-center"> Chapitre {{ loop.index }} :</h3>
+                {# Lien vers la fiche de la série : { slug: program.slug })#}
+            <h2 class="text-center">{{ history.name }}</h2>
+            <div>
+                <a href="{{ path("history", { slugMythology: character.mythology.slug, slugCategory : character.category.slug, slugCharacter: character.slug, history : history.slug }) }}" class="btn btn-primary text-end">Contempler</a>
             </div>
-        </div>    
+        </div>        
     {% else %}
         Aucune série trouvée.
     {% endfor %}
