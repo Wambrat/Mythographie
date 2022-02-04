@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Type de Personnage{% endblock %}
+
+{% block body %}
+{{ parent() }}
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ path('mythology') }}">Mythologies</a></li>
+        <li class="breadcrumb-item active" aria-current="page">categories</li>
+      </ol>
+    </nav>
+    <h1>Quelle type de personnage {{ mythology.name }} voulez vous voir les Mythes?</h1>
+    <div class="row">
+    {% for category in mythology.categories %}
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">{{ loop.index }} / {{ category.Name }}</h2>
+                    <ul class="d-flex flex-row gap-3">
+                    {% for i in 0..3 %}
+                        {% if category.characters[i].mythology == mythology %}
+                        <li>
+                            <img src="{{ category.characters[i].picture }}" alt="{{ category.characters[i].Name }}"/>
+                            <a>{{ category.characters[i].Name }}</a>
+                        </li>
+                        {% endif %}
+                    {% else %}
+
+                    {% endfor %}
+                    </ul>
+                    {# Lien vers la fiche de la série : { slug: program.slug })#}
+                </div>
+                <div class="card-footer">
+                    <a href="{{ path("category", { slugMythology: mythology.slug, slugCategory: category.slug  }) }}" class="btn btn-primary">Aller voir les Myths</a>
+                </div>
+            </div>
+        </div>    
+    {% else %}
+        Aucune série trouvée.
+    {% endfor %}
+    </div>
+{% endblock %}

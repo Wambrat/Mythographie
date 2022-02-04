@@ -1,18 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MythologyController!{% endblock %}
+{% block title %}Mythographie {% endblock %}
 
 {% block body %}
-    {{ parent() }}
-
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/ryan/projet/Mythographie/src/Controller/MythologyController.php'|file_link(0) }}">src/Controller/MythologyController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/ryan/projet/Mythographie/templates/mythology/index.html.twig'|file_link(0) }}">templates/mythology/index.html.twig</a></code></li>
-    </ul>
-</div>
+{{ parent() }}
+    <h1>Toutes les Mythologies :</h1>
+    <div class="row">
+    {% for mythology in mythologies %}
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">{{ loop.index }} / {{ mythology.name }}</h2>
+                    <p class="card-text">{{ mythology.description }}</p>
+                    {# Lien vers la fiche de la série : { slug: program.slug })#}
+                </div>
+                <div class="card-footer">
+                    <a href="{{ path("categories", { slug : mythology.slug }) }}" class="btn btn-primary">Aller voir les Myths</a>
+                </div>
+            </div>
+        </div>    
+    {% else %}
+        Aucune série trouvée.
+    {% endfor %}
+    </div>
 {% endblock %}
