@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit StripBoxe{% endblock %}
+
+{% block body %}
+    <h1>Edit StripBoxe</h1>
+
+    {{ include('strip_boxe/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('strip_boxe_index') }}">back to list</a>
+
+    {{ include('strip_boxe/_delete_form.html.twig') }}
+{% endblock %}

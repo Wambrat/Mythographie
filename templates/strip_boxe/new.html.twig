@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New StripBoxe{% endblock %}
+
+{% block body %}
+    <h1>Create new StripBoxe</h1>
+
+    {{ include('strip_boxe/_form.html.twig') }}
+
+    <a href="{{ path('strip_boxe_index') }}">back to list</a>
+{% endblock %}
