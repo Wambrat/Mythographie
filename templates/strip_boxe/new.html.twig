@@ -3,6 +3,7 @@
 {% block title %}New StripBoxe{% endblock %}
 
 {% block body %}
+{   { parent() }}
     <h1 class="text-center text-gray mb-5 mt-5">Ta première vignette BD</h1>
 
     {{ include('strip_boxe/_form.html.twig') }}
