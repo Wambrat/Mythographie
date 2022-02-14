@@ -18,7 +18,7 @@ class MythologieFixtures extends Fixture implements DependentFixtureInterface
             'description' => 'La mythologie grecque, c\'est-à-dire l\'ensemble organisé des mythes provenant de la Grèce antique.',
             'category' => [
                 'Dieu',
-                'Dieu primordial',
+                'Dieu primordiale',
                 'Heros',
                 'Creature',
                 'Titan',
