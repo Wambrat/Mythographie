@@ -11,6 +11,7 @@
         height:20rem;
         perspective: 1000px;
         border: none;
+        overflow: hidden;
         }
 
         
@@ -61,7 +62,7 @@
             <div class="card rounded flip-card">
               <div class="flip-card-inner">
                 <div class="flip-card-front">
-                  <img src="{{ character.picture }}" alt="{{ character.name }}" class="card-img w-100 h-100">
+                  <img src="{{ character.picture }}" alt="{{ character.name }}" class="card-img w-auto h-100">
                 </div>
                 <div class="rounded flip-card-back d-flex flex-column gap-5">
                   <h2 class="mt-2">{{ character.name }}</h2>
