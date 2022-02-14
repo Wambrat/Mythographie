@@ -114,8 +114,7 @@ class CharacterFixtures extends Fixture implements DependentFixtureInterface
         [
             'name' => 'Ananké',
             'description' => 'déesse de l\'inévitable, de la compulsion et de la nécessité.',
-            'picture' => 'https://scontent-cdt1-1.xx.fbcdn.net/v/t1.6435-9/fr/cp0/e15/q65/92740130_3546650535361311_5819163872665272320_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=e007fa&_nc_ohc=2it54IWxIWoAX-Eb7hx&_nc_ht=scontent-cdt1-1.xx&oh=00_AT-NsWmB4EpJvEiRi4fSQddKSVYq6i_FMNPC1Ruj7uZaPA&oe=622ED615',
-                          https://static.wikia.nocookie.net/creer-votre-mythologie/images/3/34/9b3780dca496789d1ab19c679d84cfa9.jpg/revision/latest?cb=20200805233823&path-prefix=fr
+            'picture' => 'https://static.wikia.nocookie.net/the-demonic-paradise/images/3/36/Moirai-ananke-2.jpeg/revision/latest?cb=20200502213737',
             'category' => 'Dieu primordiale',
             'mythology' => 'Grecque',
         ],
