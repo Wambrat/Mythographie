@@ -15,6 +15,12 @@ class CategoryFixtures extends Fixture
             "name" => 'Dieu',
         ],
         [
+            "name" => 'Dieu primordiale',
+        ],
+        [
+            "name" => 'Titan',
+        ],
+        [
             "name" => 'Heros',
         ],
         [
